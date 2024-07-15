@@ -2,6 +2,10 @@
 
 type LogFunction = (...args: any[]) => void;
 
+interface LoggerOptions {
+    shouldDisableNativeLogs: boolean;
+}
+
 interface Logger {
     info: LogFunction;
     warn: LogFunction;
@@ -11,8 +15,8 @@ interface Logger {
 
 const noop: LogFunction = () => {};
 
-const createLogger = (isProduction: () => boolean): Logger => {
-    if (isProduction()) {
+const createLogger = ({ shouldDisableNativeLogs }: LoggerOptions): Logger => {
+    if (shouldDisableNativeLogs) {
         return {
             info: noop,
             warn: noop,
@@ -21,12 +25,12 @@ const createLogger = (isProduction: () => boolean): Logger => {
         };
     } else {
         return {
-            info: console.info,
-            warn: console.warn,
-            error: console.error,
-            log: console.log,
+            info: console.info.bind(console),
+            warn: console.warn.bind(console),
+            error: console.error.bind(console),
+            log: console.log.bind(console),
         };
     }
 };
 
-export const createLoggerUtil = (isProduction: () => boolean) => createLogger(isProduction);
+export const traceline = (options: LoggerOptions): Logger => createLogger(options);

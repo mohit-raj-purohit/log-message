@@ -1,8 +1,9 @@
 // logger.ts
 
 var noop = function noop() {};
-var createLogger = function createLogger(isProduction) {
-  if (isProduction()) {
+var createLogger = function createLogger(_ref) {
+  var shouldDisableNativeLogs = _ref.shouldDisableNativeLogs;
+  if (shouldDisableNativeLogs) {
     return {
       info: noop,
       warn: noop,
@@ -11,16 +12,16 @@ var createLogger = function createLogger(isProduction) {
     };
   } else {
     return {
-      info: console.info,
-      warn: console.warn,
-      error: console.error,
-      log: console.log
+      info: console.info.bind(console),
+      warn: console.warn.bind(console),
+      error: console.error.bind(console),
+      log: console.log.bind(console)
     };
   }
 };
-var createLoggerUtil = function createLoggerUtil(isProduction) {
-  return createLogger(isProduction);
+var traceline = function traceline(options) {
+  return createLogger(options);
 };
 
-export { createLoggerUtil };
+export { traceline };
 //# sourceMappingURL=index.development.mjs.map

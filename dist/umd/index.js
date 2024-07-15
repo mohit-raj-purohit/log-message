@@ -1,1 +1,1 @@
-"use strict";var o=function(){};exports.createLoggerUtil=function(r){return function(r){return r()?{info:o,warn:o,error:o,log:o}:{info:console.info,warn:console.warn,error:console.error,log:console.log}}(r)};
+"use strict";var o=function(){};exports.traceline=function(n){return n.shouldDisableNativeLogs?{info:o,warn:o,error:o,log:o}:{info:console.info.bind(console),warn:console.warn.bind(console),error:console.error.bind(console),log:console.log.bind(console)}};

@@ -1,1 +1,1 @@
-var o=function(){},n=function(n){return function(n){return n()?{info:o,warn:o,error:o,log:o}:{info:console.info,warn:console.warn,error:console.error,log:console.log}}(n)};export{n as createLoggerUtil};
+var o=function(){},n=function(n){return n.shouldDisableNativeLogs?{info:o,warn:o,error:o,log:o}:{info:console.info.bind(console),warn:console.warn.bind(console),error:console.error.bind(console),log:console.log.bind(console)}};export{n as traceline};
