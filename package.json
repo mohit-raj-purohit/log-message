@@ -1,0 +1,21 @@
+{
+  "name": "log-message",
+  "version": "1.0.0",
+  "description": "log-message",
+  "main": "dist/umd/index.js",
+  "module": "dist/esm/index.mjs",
+  "scripts": {
+    "build": "rollup-scripts build",
+    "lint": "rollup-scripts lint",
+    "init": "rollup-scripts init"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup-scripts": "0.0.128"
+  },
+  "dependencies": {
+    "graphql": "^16.9.0"
+  }
+}
