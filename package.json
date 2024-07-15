@@ -1,5 +1,5 @@
 {
-  "name": "traceline",
+  "name": "@mohitrj49/traceline",
   "version": "0.0.1",
   "description": "log-message",
   "main": "dist/umd/index.js",
