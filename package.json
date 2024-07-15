@@ -1,5 +1,5 @@
 {
-  "name": "log-monitor",
+  "name": "traceline",
   "version": "0.0.1",
   "description": "log-message",
   "main": "dist/umd/index.js",
