@@ -1,1 +1,1 @@
-
+var o=function(){},n=function(n){return function(n){return n()?{info:o,warn:o,error:o,log:o}:{info:console.info,warn:console.warn,error:console.error,log:console.log}}(n)};export{n as createLoggerUtil};

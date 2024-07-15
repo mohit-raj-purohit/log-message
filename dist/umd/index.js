@@ -1,1 +1,1 @@
-"use strict";
+"use strict";var o=function(){};exports.createLoggerUtil=function(r){return function(r){return r()?{info:o,warn:o,error:o,log:o}:{info:console.info,warn:console.warn,error:console.error,log:console.log}}(r)};
