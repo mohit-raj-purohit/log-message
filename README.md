@@ -23,7 +23,7 @@ yarn add @mohitrj49/traceline
 First, import the library in your TypeScript or JavaScript file:
 
 ```
-import { createLoggerUtil } from '@mohitrj49/traceline';
+import { traceline } from '@mohitrj49/traceline';
 ```
 
 ### Creating the Logger
@@ -34,7 +34,7 @@ You need to pass a function to determine if the environment is production. This 
 const isProduction = (): boolean => {
     return process.env.NODE_ENV === 'production';
 };
-const logger = createLoggerUtil(isProduction);
+const logger = traceline({ shouldDisableNativeLogs: isProduction() });
 ```
 
 ### Logging Methods
@@ -51,13 +51,12 @@ These methods will only output messages if the environment is not production.
 Example
 
 ```
-import { createLoggerUtil } from '@mohitrj49/traceline';
+import { traceline } from '@mohitrj49/traceline';
 
 const isProduction = (): boolean => {
     return process.env.NODE_ENV === 'production';
 };
-
-const logger = createLoggerUtil(isProduction);
+const logger = traceline({ shouldDisableNativeLogs: isProduction() });
 
 logger.info('This is an info message');
 logger.warn('This is a warning message');
